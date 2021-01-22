@@ -37,7 +37,6 @@ export const Form = styled.form`
 
 export const InputWrapper = styled.div`
   position: relative;
-  margin-bottom: 30px;
 `;
 
 export const Label = styled.label`
@@ -58,7 +57,6 @@ export const Input = styled.input`
   padding: 5px;
   border: 1px solid ${theme.colors.grey};
   border-radius: 10px;
-  
 `;
 
 export const Button = styled.button`
@@ -71,6 +69,7 @@ export const Button = styled.button`
   background: ${theme.colors.darkBlue};
   color: #fff;
   height: 40px;
+  cursor: pointer;
 `;
 
 export const H1 = styled.h1`
@@ -80,4 +79,11 @@ export const H1 = styled.h1`
   @media screen and (max-width: 600px) {
     font-size: 1.5rem;
   }
+`;
+
+export const Error = styled.small`
+  margin: 2px 0 30px 15px;
+  display: block;
+  color: red;
+  font-size: 70%;
 `;
