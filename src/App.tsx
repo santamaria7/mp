@@ -1,21 +1,18 @@
 import React from "react";
 import "./App.css";
-import { Button, Form, FormWrapper, H1, Input, Label, Page } from "./components/design";
+import { Button, Form, FormWrapper, H1, Page } from "./components/design";
+import InputComponent from "./components/InputComponent";
 
 function App() {
   return (
     <Page>
       <FormWrapper>
+        <H1>Connect With Your MP</H1>
         <Form>
-          <H1>Connect With Your MP</H1>
-          <Label>First Name</Label>
-          <Input type="text" />
-          <Label>Last Name</Label>
-          <Input type="text" />
-          <Label>Email</Label>
-          <Input type="email" />
-          <Label>Password</Label>
-          <Input type="password" />
+          <InputComponent  label="First Name:" type="text" />
+          <InputComponent  label="Last Name:" type="text" />
+          <InputComponent  label="Email:" type="email" />
+          <InputComponent  label="Password" type="password" />
           <Button type="submit">Send</Button>
         </Form>
       </FormWrapper>
