@@ -1,12 +1,12 @@
 import { Button, Error, Form, FormWrapper, H1 } from "../design";
 import InputComponent from "../InputComponent";
-import React from "react";
+import React, { FormEvent } from "react";
 
 const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, values, modifyValues, error }) =>{
   return (
     <FormWrapper>
       <H1>Connect With Your MP</H1>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={(e) => onSubmit(e)}>
         <InputComponent
           label="First Name:"
           name="firstName"

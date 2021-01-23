@@ -1,54 +1,24 @@
 import React from "react";
 import "./App.css";
-import { Button, Form, FormWrapper, H1, Page, Error } from "../design";
-import InputComponent from "../InputComponent";
+import { Page } from "../design";
 import { useForm } from "../../hooks/useForm";
+import FormComponent from "../FormComponent";
+import ResultsComponent from "../ResultsComponent";
 
 function App() {
-  const { onSubmit, values, error, modifyValues } = useForm();
+  const { onSubmit, values, error, modifyValues, results } = useForm();
   return (
     <Page>
-      <FormWrapper>
-        <H1>Connect With Your MP</H1>
-        <Form onSubmit={onSubmit}>
-          <InputComponent
-            label="First Name:"
-            name="firstName"
-            type="text"
-            title="Enter Your First Name Please"
-            value={values.firstName}
-            onChange={modifyValues}
-          />
-          <InputComponent
-            label="Last Name:"
-            name="lastName"
-            type="text"
-            title="Enter Your Last Name Please"
-            value={values.lastName}
-            onChange={modifyValues}
-          />
-          <InputComponent
-            label="Email:"
-            name="email"
-            type="email"
-            title="Enter Your Email Please"
-            value={values.email}
-            onChange={modifyValues}
-          />
-          <InputComponent
-            label="Postal Code:"
-            name="postalCode"
-            type="text"
-            required
-            title="Enter The Postal Code Please"
-            value={values.postalCode}
-            onChange={modifyValues}
-          />
-          <Error>{error.postalCode}</Error>
-          <Button type="submit">Send</Button>
-          <Error>{error.data}</Error>
-        </Form>
-      </FormWrapper>
+      {results.length === 0 ? (
+        <FormComponent
+          onSubmit={onSubmit}
+          values={values}
+          error={error}
+          modifyValues={modifyValues}
+        />
+      ) : (
+        <ResultsComponent results={results} />
+      )}
     </Page>
   );
 }

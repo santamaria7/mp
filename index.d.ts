@@ -12,12 +12,18 @@ type Representative = {
   district_name: string;
   elected_office: string;
   email: string;
-  extra: {};
+  extra: {
+    constituency_email?: string;
+  };
   first_name: string;
   gender: string;
   last_name: string;
   name: string;
-  offices: [];
+  offices: {
+    type?: string;
+    fax?: string;
+    tel?: string;
+  }[];
   party_name: string;
   personal_url: string;
   photo_url: string;
@@ -55,8 +61,16 @@ type ShowErrorType = {
 };
 
 type FormComponentProps = {
-  onSubmit: () => void;
-  modifyValues: () => void;
+  onSubmit: (e: FormEvent) => void;
+  modifyValues: (e: React.ChangeEvent<HTMLInputElement>) => void;
   values: FormValues;
   error: ShowErrorType;
+};
+
+type ResultsProps = {
+  results: Representative[];
+};
+
+type MemberProps = {
+  item: Representative;
 };

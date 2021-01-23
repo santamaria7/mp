@@ -89,3 +89,32 @@ export const Error = styled.small`
   color: red;
   font-size: 70%;
 `;
+export const ResultsWrapper = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80%;
+  padding: 20px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Card = styled.div`
+  flex-grow: 1;
+  min-width: 49%;
+  max-width: 49%;
+  padding: 15px;
+  background: ${theme.colors.bg2};
+  box-shadow: 1px 2px 11px rgb(0 0 0 / 23%);
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 479px) {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    min-width: 49%;
+    max-width: 49%;
+  }
+`;
