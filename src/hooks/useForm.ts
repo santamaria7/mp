@@ -1,12 +1,5 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { requestMP } from "../api";
-
-export type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  postalCode: string;
-};
+import React, { FormEvent, useState } from "react";
+import { requestMPJSONP } from "../api";
 
 export function useForm() {
   const [values, setValues] = useState<FormValues>({
@@ -15,9 +8,11 @@ export function useForm() {
     email: "",
     postalCode: "",
   });
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<ShowErrorType>({});
 
   const [sending, setSending] = useState<boolean>(false);
+
+  const [results, setResults] = useState<Representative[]>([]);
 
   function modifyValues(e: React.ChangeEvent<HTMLInputElement>) {
     setValues((prevState) => ({
@@ -25,13 +20,22 @@ export function useForm() {
       [e.target.name]: e.target.value,
     }));
   }
+  function handleData(err: Error | null, data: PostCodeData) {
+    if (err) {
+      setError((prevState) => ({
+        ...prevState,
+        data: "No Data Found",
+      }));
+      return;
+    }
+    setResults(data.representatives_centroid);
+  }
 
   async function requestData() {
     setSending(true);
     try {
-      const res = await requestMP(values.postalCode);
+      await requestMPJSONP(values.postalCode, handleData);
       setSending(false);
-      console.log(res);
     } catch (error) {
       setSending(false);
       console.log(error);
@@ -42,15 +46,19 @@ export function useForm() {
     e.preventDefault();
     values.postalCode !== ""
       ? requestData()
-      : setError("Please enter a valid postal code");
+      : setError((prevState) => ({
+          ...prevState,
+          postalCode: "Please enter a valid postal code",
+        }));
   }
 
   return {
     onSubmit,
+    modifyValues,
     values,
     setValues,
     error,
     sending,
-    modifyValues,
+    results,
   };
 }

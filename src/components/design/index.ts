@@ -84,6 +84,7 @@ export const H1 = styled.h1`
 
 export const Error = styled.small`
   margin: -28px 0 30px 15px;
+  min-height: 1px;
   display: block;
   color: red;
   font-size: 70%;
