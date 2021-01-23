@@ -92,29 +92,73 @@ export const Error = styled.small`
 export const ResultsWrapper = styled.div`
   margin: 0 auto;
   width: 100%;
-  max-width: 80%;
   padding: 20px 15px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    max-width: 75%;
+  }
 `;
 
 export const Card = styled.div`
   flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
   min-width: 49%;
   max-width: 49%;
   padding: 15px;
   background: ${theme.colors.bg2};
   box-shadow: 1px 2px 11px rgb(0 0 0 / 23%);
   margin-bottom: 20px;
-
-  @media screen and (max-width: 479px) {
+  @media screen and (max-width: 319px) {
     min-width: 100%;
     max-width: 100%;
   }
-  @media screen and (min-width: 480px) and (max-width: 767px) {
-    min-width: 49%;
-    max-width: 49%;
+  @media screen and (min-width: 320px) and (max-width: 991px) {
+    min-width: 300px;
+    max-width: 300px;
+    margin: 0 auto 20px;
   }
+`;
+
+export const Details = styled.div`
+  flex-grow: 2;
+  strong {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1em;
+  }
+  a {
+    display: inline-block;
+    margin: 0 10px 0 0;
+  }
+
+  @media screen and (max-width: 991px) {
+    strong {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+`;
+export const ImageWrapper = styled.div`
+  flex-grow: 1;
+  min-width: 120px;
+  max-width: 120px;
+  img {
+    width: 85%;
+    display: block;
+    margin: 0 0 0 auto;
+  }
+`;
+
+export const Credit = styled.div`
+padding: 10px 0;
+  font-size: 12px;
+  font-family: monospace;
+  text-align:center;
 `;
