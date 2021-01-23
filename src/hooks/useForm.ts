@@ -20,23 +20,28 @@ export function useForm() {
       [e.target.name]: e.target.value,
     }));
   }
-  function handleData(err: Error | null, data: PostCodeData) {
-    if (err) {
-      setError((prevState) => ({
-        ...prevState,
-        data: "No Data Found",
-      }));
-      return;
-    }
+  function handleData(data: PostCodeData) {
+    console.log(data);
     setResults(data.representatives_centroid);
+    setError((prevState) => ({
+      ...prevState,
+      data: "",
+    }));
+    setSending(false);
   }
 
   async function requestData() {
     setSending(true);
     try {
-      await requestMPJSONP(values.postalCode, handleData);
-      setSending(false);
+      const res = await requestMPJSONP(values.postalCode);
+      handleData(res);
     } catch (error) {
+      // In a real world case error handling is done based on the status code of the response.
+      // here we only get 404
+      setError((prevState) => ({
+        ...prevState,
+        data: "No Data Found",
+      }));
       setSending(false);
       console.log(error);
     }

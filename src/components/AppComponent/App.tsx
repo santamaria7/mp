@@ -44,8 +44,9 @@ function App() {
             value={values.postalCode}
             onChange={modifyValues}
           />
-          <Error>{error}</Error>
+          <Error>{error.postalCode}</Error>
           <Button type="submit">Send</Button>
+          <Error>{error.data}</Error>
         </Form>
       </FormWrapper>
     </Page>

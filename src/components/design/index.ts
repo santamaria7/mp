@@ -62,7 +62,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   width: 100px;
   padding: 5px 10px;
   border: 1px solid ${theme.colors.darkBlue};
