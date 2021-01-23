@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { requestMP } from "../api";
 
 export type FormValues = {
@@ -18,6 +18,13 @@ export function useForm() {
   const [error, setError] = useState<string>("");
 
   const [sending, setSending] = useState<boolean>(false);
+
+  function modifyValues(e: React.ChangeEvent<HTMLInputElement>) {
+    setValues((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  }
 
   async function requestData() {
     setSending(true);
@@ -44,5 +51,6 @@ export function useForm() {
     setValues,
     error,
     sending,
+    modifyValues,
   };
 }

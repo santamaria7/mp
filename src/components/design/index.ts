@@ -37,6 +37,7 @@ export const Form = styled.form`
 
 export const InputWrapper = styled.div`
   position: relative;
+  margin-bottom: 30px;
 `;
 
 export const Label = styled.label`
@@ -82,7 +83,7 @@ export const H1 = styled.h1`
 `;
 
 export const Error = styled.small`
-  margin: 2px 0 30px 15px;
+  margin: -28px 0 30px 15px;
   display: block;
   color: red;
   font-size: 70%;
