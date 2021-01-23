@@ -1,8 +1,9 @@
 import { Button, Error, Form, FormWrapper, H1 } from "../design";
 import InputComponent from "../InputComponent";
 import React, { FormEvent } from "react";
+import LoadingIcon from "../LoadingIcon";
 
-const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, values, modifyValues, error }) =>{
+const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, values, modifyValues, error, sending }) =>{
   return (
     <FormWrapper>
       <H1>Connect With Your MP</H1>
@@ -41,7 +42,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, values, modifyV
           onChange={modifyValues}
         />
         <Error>{error.postalCode}</Error>
-        <Button type="submit">Send</Button>
+        <Button type="submit">{sending ? <LoadingIcon />:'Send'}</Button>
         <Error className="data">{error.data}</Error>
       </Form>
     </FormWrapper>

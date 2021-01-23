@@ -65,6 +65,7 @@ type FormComponentProps = {
   modifyValues: (e: React.ChangeEvent<HTMLInputElement>) => void;
   values: FormValues;
   error: ShowErrorType;
+  sending: boolean;
 };
 
 type ResultsProps = {

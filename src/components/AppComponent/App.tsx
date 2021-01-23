@@ -6,7 +6,7 @@ import FormComponent from "../FormComponent";
 import ResultsComponent from "../ResultsComponent";
 
 function App() {
-  const { onSubmit, values, error, modifyValues, results } = useForm();
+  const { onSubmit, values, error, sending, modifyValues, results } = useForm();
   return (
     <Page>
       {results.length === 0 ? (
@@ -15,6 +15,7 @@ function App() {
           values={values}
           error={error}
           modifyValues={modifyValues}
+          sending={sending}
         />
       ) : (
         <ResultsComponent results={results} />

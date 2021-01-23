@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const theme = {
   colors: {
@@ -58,6 +58,12 @@ export const Input = styled.input`
   padding: 5px;
   border: 1px solid ${theme.colors.grey};
   border-radius: 10px;
+  transition: all ease-in 0.5s;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      border-color: ${theme.colors.darkBlue};
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -71,6 +77,15 @@ export const Button = styled.button`
   color: #fff;
   height: 40px;
   cursor: pointer;
+  font-weight: bold;
+  transition: all ease-in 0.5s;
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      background: #c2d8ff;
+      border-color: #c2d8ff;
+      color: ${theme.colors.darkBlue};
+    }
+  }
 `;
 
 export const H1 = styled.h1`
@@ -103,7 +118,7 @@ export const ResultsWrapper = styled.div`
   align-items: stretch;
   justify-content: space-between;
   @media screen and (min-width: 768px) {
-    max-width: 75%;
+    max-width: 870px;
   }
 `;
 
@@ -167,4 +182,34 @@ export const Credit = styled.div`
   font-size: 12px;
   font-family: monospace;
   text-align: center;
+`;
+
+function blinkingEffect() {
+  return keyframes`
+    50% {
+      opacity: 0;
+    }
+  `;
+}
+
+export const Loading = styled.span`
+  display: block;
+  span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    animation: ${blinkingEffect} 1s linear infinite;
+    &:first-of-type {
+      animation-delay: 0s;
+    }
+    &:nth-of-type(2) {
+      animation-delay: 0.3s;
+      margin: 0 3px;
+    }
+    &:first-of-type {
+      animation-delay: 0.5s;
+    }
+  }
 `;
