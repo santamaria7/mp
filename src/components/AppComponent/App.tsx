@@ -11,13 +11,13 @@ function App() {
       <FormWrapper>
         <H1>Connect With Your MP</H1>
         <Form onSubmit={onSubmit}>
-          <InputComponent  label="First Name:" type="text" required title="Enter Your First Name Please"/>
+          <InputComponent  label="First Name:" type="text" title="Enter Your First Name Please"/>
           <Error>{errors.firstName}</Error>
-          <InputComponent  label="Last Name:" type="text" required title="Enter Your Last Name Please" />
+          <InputComponent  label="Last Name:" type="text" title="Enter Your Last Name Please" />
           <Error>{errors.lastName}</Error>
-          <InputComponent  label="Email:" type="email" required title="Enter Your Email Please"/>
+          <InputComponent  label="Email:" type="email" title="Enter Your Email Please"/>
           <Error>{errors.email}</Error>
-          <InputComponent  label="Postal Code:" type="text" pattern="[0-9]" required title="Enter Your Postal Code Please"/>
+          <InputComponent  label="Postal Code:" type="text" required title="Enter The Postal Code Please"/>
           <Error>{errors.postalCode}</Error>
           <Button type="submit">Send</Button>
         </Form>

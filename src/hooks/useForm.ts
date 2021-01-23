@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
+import { requestMP } from "../api";
 
-type FormValues = {
+
+export type FormValues = {
   firstName: string;
   lastName: string;
   email: string;
@@ -31,7 +33,16 @@ export function useForm() {
   }
 
   async function requestData(){
-    setSending(true)
+    setSending(true);
+    try{
+      const res = await requestMP(values.postalCode);
+      setSending(false);
+      console.log(res);
+    }
+    catch(error){
+      setSending(false);
+      console.log(error)
+    }
   }
 
   function onSubmit(e: FormEvent) {
