@@ -16,8 +16,8 @@ const Member: React.FC<MemberProps> = ({ item }) => {
     <Card>
       <Details>
         <strong>{item.name}</strong>
-        <p>Riding: {item.district_name}</p>
-        <p>party: {item.party_name}</p>
+        <p><strong>Riding: </strong>{item.district_name}</p>
+        <p><strong>party: </strong>{item.party_name}</p>
         <p>
           <a
             href={`mailto:${item.email}`}

@@ -42,7 +42,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ onSubmit, values, modifyV
         />
         <Error>{error.postalCode}</Error>
         <Button type="submit">Send</Button>
-        <Error>{error.data}</Error>
+        <Error className="data">{error.data}</Error>
       </Form>
     </FormWrapper>
   );

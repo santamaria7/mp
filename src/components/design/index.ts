@@ -88,6 +88,11 @@ export const Error = styled.small`
   display: block;
   color: red;
   font-size: 70%;
+  &.data {
+    margin: 0 auto;
+    font-size: 100%;
+    text-align: center;
+  }
 `;
 export const ResultsWrapper = styled.div`
   margin: 0 auto;
@@ -125,11 +130,12 @@ export const Card = styled.div`
 
 export const Details = styled.div`
   flex-grow: 2;
-  strong {
+  & > strong {
     font-size: 1.5em;
   }
   p {
     font-size: 1em;
+    line-height: 1.5;
   }
   a {
     display: inline-block;
@@ -137,7 +143,7 @@ export const Details = styled.div`
   }
 
   @media screen and (max-width: 991px) {
-    strong {
+    & > strong {
       font-size: 16px;
     }
     p {
@@ -157,8 +163,8 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Credit = styled.div`
-padding: 10px 0;
+  padding: 10px 0;
   font-size: 12px;
   font-family: monospace;
-  text-align:center;
+  text-align: center;
 `;
